@@ -30,7 +30,7 @@ namespace MainConsoleApp
             this.path = path;
             if (!File.Exists(path))
             {
-                File.Create(path);
+                File.Create(path).Close();                
             }
 
             FileInfo file = new FileInfo(path);
