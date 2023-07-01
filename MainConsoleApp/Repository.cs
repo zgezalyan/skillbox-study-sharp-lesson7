@@ -220,6 +220,11 @@ namespace MainConsoleApp
         /// </summary>
         public void CommitChanges()
         {
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+
             using (StreamWriter sw = new StreamWriter(path, false))
             {
                 foreach (Worker worker in workers)
